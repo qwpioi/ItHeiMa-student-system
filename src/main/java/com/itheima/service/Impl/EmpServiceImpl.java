@@ -3,6 +3,7 @@ package com.itheima.service.Impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.itheima.entity.Emp;
+import com.itheima.entity.EmpQueryParam;
 import com.itheima.entity.PageBean;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.service.EmpService;
@@ -23,7 +24,7 @@ public class EmpServiceImpl implements EmpService {
      * @return
      */
     @Override
-    public PageBean page(Integer page, Integer pageSize) {
+    public PageBean page(EmpQueryParam param) {
        /* //1.调用mapper获取总记录数  total
         //select count(*) form emp;
         Long total = empMapper.count();
@@ -34,10 +35,10 @@ public class EmpServiceImpl implements EmpService {
         List<Emp> empList = empMapper.page(start,pageSize);*/
 
         //1.设置分页参数
-        PageHelper.startPage(page,pageSize);
+        PageHelper.startPage(param.getPage(),param.getPageSize());
 
         //2.调用mapper的方法
-        List<Emp> empList = empMapper.list();
+        List<Emp> empList = empMapper.list(param);
         Page p = (Page) empList;    //强转对象，Page集成了ArrayList
 
         //3.封装PageBean对象并返回

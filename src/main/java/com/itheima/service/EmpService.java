@@ -1,13 +1,13 @@
 package com.itheima.service;
 
+import com.itheima.entity.EmpQueryParam;
 import com.itheima.entity.PageBean;
 
 public interface EmpService {
     /**
-     * 分页查询
-     * @param page
-     * @param pageSize
+     * 分页条件查找
+     * @param param
      * @return
      */
-    PageBean page(Integer page, Integer pageSize);
+    PageBean page(EmpQueryParam param);
 }
