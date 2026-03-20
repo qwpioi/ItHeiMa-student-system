@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+//定义实体类然后封装Mapper层查询出的数据
 @Data
 public class Emp {
     private Integer id; //ID,主键

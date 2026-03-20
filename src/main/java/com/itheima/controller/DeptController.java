@@ -23,8 +23,8 @@ public class DeptController {
     }
 
     //删除
-    @DeleteMapping()
-    public Result delete(Integer id){
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id){
         //System.out.println("deptID = " + id);
         log.info("deptID = {}",id);
         //调用Server的删除方法

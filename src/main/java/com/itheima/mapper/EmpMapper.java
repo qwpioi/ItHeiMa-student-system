@@ -8,8 +8,15 @@ import java.util.List;
 
 @Mapper
 public interface EmpMapper {
-    @Select("select count(*) from emp")
+    /*@Select("select count(*) from emp")
     Long count();
     @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id limit #{start}, #{pageSize};")
-    List<Emp> page(Integer start, Integer pageSize);
+    List<Emp> page(Integer start, Integer pageSize);*/
+
+    /**
+     * 列表查询，分页查询
+     * @return
+     */
+    @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id")
+    List<Emp> list();
 }
